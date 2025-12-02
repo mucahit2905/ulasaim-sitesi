@@ -1,0 +1,60 @@
+.sıralama {
+  margin-left: 17%;
+}
+
+table {
+  display: inline-table;
+  margin: auto;
+  width: 80%;
+  height: 800px;
+  text-align: center;
+  border: solid 1px black;
+  background-color: #e2efda;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  padding: 0;
+}
+caption {
+  background-color: #bdd7ee;
+  color: #00315c;
+  padding: 10px;
+  font-size: larger;
+  font-weight: bold;
+  border: 1px solid black;
+  border-bottom: none;
+}
+.tablo-basliklari {
+  background-color: #bdd7ee;
+  color: #00315c;
+ 
+  
+}
+
+
+
+.hafta-bolumleri {
+  background-color: #e2efda;
+  
+}
+
+#otobüssaatlerilinkler {
+  display: flex;
+  height: 20px;
+  margin-top: 15px;
+
+  a {
+    text-decoration: none;
+    color: #799cb8;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 15px;
+  }
+}
+
+.tablo {
+  padding-left: 10%;
+  
+}
+
+
+

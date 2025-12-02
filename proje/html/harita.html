@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Haritam</title>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <style>
+      .leaflet-routing-container {
+        width: 20%;
+        height: 20rem;
+        overflow: auto;
+        padding: 10px;
+      }
+
+      .leaflet-popup-content {
+        font-size: 12px !important;
+        font-family: Arial, sans-serif;
+      }
+
+      .leaflet-tooltip {
+        font-size: 12px !important;
+      }
+
+      #map {
+        height: 100vh;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.min.js"></script>
+    <script>
+      const stops = [
+        { name: "durak14", coords: [41.0920375, 30.7255252] },
+        { name: "durak13", coords: [41.0920375, 30.7255252] },
+        { name: "durak12", coords: [41.0928569, 30.7229835] },
+        { name: "durak11", coords: [41.0950447, 30.7176238] },
+
+        { name: "durak10", coords: [41.0969908, 30.7129844] },
+        { name: "durak9", coords: [41.0986557, 30.7088139] },
+        { name: "durak8", coords: [41.1012749, 30.7023376] },
+        { name: "durak7", coords: [41.1034724, 30.6971118] },
+        { name: "durak6", coords: [41.10485183377219, 30.693150582319205] },
+
+        { name: "durak5", coords: [41.1024186, 30.6926036] },
+        { name: "durak4", coords: [41.100447, 30.6924497] },
+
+        { name: "durak3", coords: [41.0991226, 30.6923928] },
+        { name: "durak2", coords: [41.0972152, 30.6924987] },
+        { name: "durak1", coords: [41.0961577, 30.6924091] },
+      ];
+
+      const map = L.map("map").setView(stops[0].coords, 14);
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> katkıcıları',
+      }).addTo(map);
+
+      stops.forEach((stop) => {
+        L.marker(stop.coords).addTo(map).bindPopup(stop.name);
+      });
+
+      L.Routing.control({
+        router: L.Routing.osrmv1({
+          profile: "car",
+        }),
+        waypoints: stops.map((stop) =>
+          L.latLng(stop.coords[0], stop.coords[1])
+        ),
+        routeWhileDragging: false,
+        showAlternatives: false,
+        fitSelectedRoutes: true,
+        snapToWaypoints: true,
+        addWaypoints: false,
+        draggableWaypoints: false,
+        lineOptions: {
+          styles: [{ color: "blue", weight: 4 }],
+        },
+      }).addTo(map);
+
+      const busIcon = L.icon({
+        iconUrl: "https://cdn-icons-png.flaticon.com/128/0/308.png",
+        iconSize: [40, 40],
+        iconAnchor: [20, 40],
+        popupAnchor: [0, -40],
+      });
+
+      let index = 0;
+      let otobusMarker = L.marker(stops[index].coords, { icon: busIcon })
+        .addTo(map)
+        .bindPopup("Otobüs burda: " + stops[index].name)
+        .openPopup();
+
+      function hareketEttir() {
+        index++;
+        if (index >= stops.length) index = 0;
+
+        otobusMarker.setLatLng(stops[index].coords);
+        otobusMarker
+          .bindPopup("Otobüs burda: " + stops[index].name)
+          .openPopup();
+        map.panTo(stops[index].coords);
+      }
+
+      setInterval(hareketEttir, 10000);
+    </script>
+  </body>
+</html>

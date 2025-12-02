@@ -1,0 +1,128 @@
+.iletişim .çözüm_masası {
+  text-align: center;
+}
+
+.sidebar {
+  display: inline;
+}
+
+.sıralama {
+  display: flex;
+}
+
+#contact {
+  display: flex;
+
+  img {
+    margin-top: 200px;
+    border-radius: 60px;
+    width: 180px;
+    height: 180px;
+  }
+
+  div {
+    text-align: center;
+    margin: 20px;
+    padding-bottom: 500px;
+  }
+}
+
+.anasayfa_iletişim {
+  display: flex;
+  height: 20px;
+  margin-top: 15px;
+
+  a {
+    text-decoration: none;
+    color: #799cb8;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 15px;
+  }
+}
+
+.sıralama {
+  margin-left: 17%;
+}
+
+.iletisim {
+  margin-top: 30px;
+  margin-bottom: 100px;
+  width: 100%;
+
+  h3 {
+    color: #026aac;
+    font-size: 26px;
+    border-bottom: 3px solid #026aac;
+    width: 30%;
+    margin-bottom: 1rem;
+  }
+
+  input {
+    width: 70%;
+    height: 40px;
+    border-radius: 10px;
+    border: solid 3px #026aac;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    text-indent: 10px;
+  }
+
+  textarea {
+    width: 50%;
+    min-width: 50%;
+    height: 10rem;
+    max-width: 70%;
+    min-height: 10rem;
+    max-height: 30rem;
+    border-radius: 10px;
+    border: solid 3px #026aac;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    text-indent: 10px;
+  }
+
+  label {
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
+
+  button {
+    background-color: #026aac;
+    width: 70%;
+    height: 40px;
+    border-radius: 10px;
+    border: solid 3px #026aac;
+    color: white;
+    font-size: 24px;
+
+    transition: all ease 400ms;
+  }
+  button:hover {
+    background-color: #307fb0;
+    border: solid 3px #307fb0;
+  }
+}
+
+#iletişimlinkler {
+  display: flex;
+  height: 20px;
+  margin-top: 15px;
+  margin-left: 17%;
+
+  a {
+    text-decoration: none;
+    color: #799cb8;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 15px;
+  }
+}

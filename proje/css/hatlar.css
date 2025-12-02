@@ -1,0 +1,133 @@
+.wrapper2 {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  margin-top: 1%;
+  margin-left: 17%;
+  margin-bottom: 5%;
+
+  height: fit-content;
+  flex-wrap: wrap;
+}
+
+.minibüshatları {
+  position: relative;
+  width: 98%;
+  margin-top: 20px;
+}
+.hat {
+  background-color: #fbfbfb;
+  width: 95%;
+  height: auto;
+  margin: 25px 25px 0px 25px;
+  border-radius: 20px;
+  box-shadow: #e3e3e3 2px 2px;
+  cursor: pointer;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 400ms ease;
+  display: flex;
+
+  .hat-yazı {
+    display: inline-flex;
+    color: #00315c;
+    text-align: start;
+    padding: 30px;
+    font-weight: 500;
+    font-size: 18px;
+    word-spacing: 10px;
+    letter-spacing: 2px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+  span {
+    font-size: 24px;
+  }
+  .hat-img {
+    display: inline-flex;
+    padding-right: 30px;
+  }
+}
+
+.hat:hover {
+  background-color: #2882ff10;
+}
+
+.hat:hover {
+  border-radius: 20px 20px 0px 0px;
+}
+
+#hatlinkler {
+  display: flex;
+  height: 20px;
+  margin-top: 15px;
+
+  a {
+    text-decoration: none;
+    color: #799cb8;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 15px;
+  }
+}
+.güzergah {
+  display: block;
+
+  margin-top: 0px;
+  margin-left: 25px;
+
+  z-index: 5;
+  background-color: #ffff;
+  width: 95%;
+
+  border-radius: 0px 0px 20px 20px;
+  box-shadow: #e3e3e3 2px 2px;
+  cursor: pointer;
+  transition: all 400ms ease;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+
+  h3 {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 20px;
+  }
+
+  p {
+    color: #00315c;
+    text-align: start;
+    margin-left: 20px;
+    padding: 8px;
+
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+}
+
+#güzergah1.aktif {
+  max-height: 500px;
+  display: block;
+}
+
+#güzergah2.aktif {
+  max-height: 500px;
+  display: block;
+}
+
+#güzergah3.aktif {
+  max-height: 500px;
+  display: block;
+}
+
+#güzergah4.aktif {
+  max-height: 500px;
+  display: block;
+}
+
+#güzergah5.aktif {
+  max-height: 500px;
+  display: block;
+}
+
+#güzergah6.aktif {
+  max-height: 500px;
+  display: block;
+}

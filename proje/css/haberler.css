@@ -1,0 +1,44 @@
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.haber {
+  width: 80%;
+  flex-wrap: nowrap;
+  margin-top: 30px;
+  text-align: start;
+  margin-left: auto;
+  margin-right: auto;
+  h3 {
+    color: #026aac;
+  }
+  p {
+    text-indent: 2em;
+    margin-top: 20px;
+    word-spacing: 2px;
+    letter-spacing: 1.5px;
+    line-height: 21px;
+    font-weight: 400;
+  }
+}
+
+.görseller {
+  img {
+    width: 30%;
+    height: 200px;
+    border-radius: 20px;
+    margin: 30px 10px;
+  }
+}
+
+.wrapper2 {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  margin-top: 1%;
+  margin-left: 10%;
+  margin-bottom: 5%;
+
+  height: fit-content;
+  flex-wrap: wrap;
+  overflow: hidden;
+}

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Duraklar</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="/proje/img/sakarya ulaşım logo.png"
+    />
+    <link rel="stylesheet" href="/proje/css/duraklar.css" />
+    <link rel="stylesheet" href="/proje/css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-bar">
+        <img
+          src="/proje/img/belediyelogo.png"
+          alt=""
+          width="100px"
+          height="100px"
+        />
+        <h1>Yolda Güven, Ulaşımda Hız.</h1>
+        <img
+          src="/proje/img/sakarya ulaşım logo.png"
+          alt=""
+          width="85px"
+          height="85px"
+        />
+      </div>
+    </header>
+    <nav>
+      <div class="sidebar">
+        <a href="/proje/html/index.html">
+          <div id="anasayfa">
+            <img src="/proje/img/ev simgesi.svg" alt="home" />
+            <p>Anasayfa</p>
+          </div></a
+        >
+        <a href="/proje/html/otobüsümnerede.html">
+          <div id="otobüsümnerde">
+            <img
+              src="/proje/img/otobüsüm nerde simge.svg"
+              alt="otobüsüm nerde"
+            />
+            <p>Otobüsüm Nerede?</p>
+          </div></a
+        >
+        <a href="/proje/html/nasılgiderim.html">
+          <div id="nasilgiderim">
+            <img
+              src="/proje/img/nasıl giderim simgesi.svg"
+              alt="nasıl giderim"
+            />
+            <p>Nasıl Giderim?</p>
+          </div></a
+        >
+        <a href="/proje/html/hatlar.html"
+          ><div id="hatlar">
+            <img src="/proje/img/hatlar simgesi.svg" alt="hatlar" />
+            <p>Hatlar</p>
+          </div>
+        </a>
+        <a href="/proje/html/duraklar.html"
+          ><div id="duraklar">
+            <img src="/proje/img/duraklar simgesi.svg" alt="duraklar" />
+            <p>Duraklar</p>
+          </div></a
+        >
+        <a href="/proje/html/otobüs saatelri.html ">
+          <div id="otobüsaatleri">
+            <img
+              src="/proje/img/otobüs saatleri simgesi.svg"
+              alt="otobüs saatleri"
+            />
+            <p>Otobüs Saatleri</p>
+          </div></a
+        >
+        <a href="/proje/html/ücretlertarifesi.html">
+          <div id="ücrettarifesi">
+            <img
+              src="/proje/img/ücret tarifesi simgesi.svg"
+              alt="ücret tarifesi"
+            />
+            <p>Ücret Tarifesi</p>
+          </div></a
+        >
+
+        <a href="/proje/html/iletişim.html"
+          ><div id="iletişim">
+            <img src="/proje/img/iletişim simgesi.svg" alt="iletişim" />
+            <p>İletişim</p>
+          </div></a
+        >
+      </div>
+    </nav>
+    <div id="duraklarbaslik">
+      <a href="index.html"><pre> Ana Sayfa  ></pre></a>
+      <a href="duraklar.html"><pre> Duraklar</pre></a>
+    </div>
+    <div id="map">
+      <div id="map">
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script>
+          const sanayiStops = [
+            { name: "durak1", coords: [41.0939223, 30.6926378] },
+            { name: "durak2", coords: [41.0985123, 30.7087878] },
+            { name: "durak3", coords: [41.0961577, 30.6924091] },
+            { name: "durak4", coords: [41.0991226, 30.6923928] },
+            { name: "durak5", coords: [41.100447, 30.6924497] },
+            { name: "durak6", coords: [41.1032868, 30.6972268] },
+            { name: "durak7", coords: [41.1011305, 30.7023705] },
+            { name: "durak8", coords: [41.0954119, 30.7164563] },
+            { name: "durak9", coords: [41.0960789, 30.6924984] },
+            { name: "durak10", coords: [41.0972152, 30.6924987] },
+            { name: "durak11", coords: [41.0994637, 30.6925531] },
+            { name: "durak12", coords: [41.1024186, 30.6926036] },
+            { name: "durak13", coords: [41.103866, 30.6926341] },
+            {
+              name: "durak14",
+              coords: [41.10485183377219, 30.693150582319205],
+            },
+            { name: "durak15", coords: [41.1034724, 30.6971118] },
+            { name: "durak16", coords: [41.1012749, 30.7023376] },
+            { name: "durak17", coords: [41.0986557, 30.7088139] },
+            { name: "durak18", coords: [41.0969908, 30.7129844] },
+            { name: "durak19", coords: [41.0950447, 30.7176238] },
+            { name: "durak20", coords: [41.0928569, 30.7229835] },
+            { name: "durak21", coords: [41.0920375, 30.7255252] },
+            { name: "durak22", coords: [41.0920375, 30.7255252] },
+          ];
+
+          const rota1 = [
+            { name: "durak1", coords: [41.10485183377219, 30.693150582319205] },
+            { name: "durak2", coords: [41.1034724, 30.6971118] },
+            { name: "durak3", coords: [41.1012749, 30.7023376] },
+            { name: "durak4", coords: [41.0986557, 30.7088139] },
+            { name: "durak5", coords: [41.0969908, 30.7129844] },
+            { name: "durak6", coords: [41.0950447, 30.7176238] },
+            { name: "durak7", coords: [41.0928569, 30.7229835] },
+            { name: "durak8", coords: [41.0920375, 30.7255252] },
+            { name: "durak9", coords: [41.0920375, 30.7255252] },
+          ];
+
+          const rota2 = [
+            { name: "durak3", coords: [41.0961577, 30.6924091] },
+            { name: "durak4", coords: [41.0991226, 30.6923928] },
+            { name: "durak5", coords: [41.100447, 30.6924497] },
+            { name: "durak6", coords: [41.1032868, 30.6972268] },
+            { name: "durak7", coords: [41.1011305, 30.7023705] },
+            { name: "durak8", coords: [41.0954119, 30.7164563] },
+            { name: "durak9", coords: [41.0960789, 30.6924984] },
+            { name: "durak10", coords: [41.0972152, 30.6924987] },
+            { name: "durak11", coords: [41.0994637, 30.6925531] },
+            { name: "durak12", coords: [41.1024186, 30.6926036] },
+          ];
+
+          const rota3 = [
+            { name: "durak1", coords: [41.0994637, 30.6925531] },
+            { name: "durak2", coords: [41.1024186, 30.6926036] },
+            { name: "durak3", coords: [41.103866, 30.6926341] },
+            { name: "durak4", coords: [41.10485183377219, 30.693150582319205] },
+            { name: "durak5", coords: [41.1034724, 30.6971118] },
+            { name: "durak6", coords: [41.1012749, 30.7023376] },
+            { name: "durak7", coords: [41.0986557, 30.7088139] },
+            { name: "durak8", coords: [41.0969908, 30.7129844] },
+            { name: "durak9", coords: [41.0950447, 30.7176238] },
+            { name: "durak10", coords: [41.0928569, 30.7229835] },
+            { name: "durak11", coords: [41.0920375, 30.7255252] },
+            { name: "durak12", coords: [41.0920375, 30.7255252] },
+            { name: "durak13", coords: [43.97877, 15.382639] },
+            { name: "durak14", coords: [43.978879, 15.383565] },
+            { name: "durak15", coords: [43.97901, 15.384703] },
+            { name: "durak16", coords: [43.978497, 15.384141] },
+            { name: "durak17", coords: [43.978049, 15.383701] },
+            { name: "durak18", coords: [43.977591, 15.383322] },
+            { name: "durak19", coords: [43.977667, 15.384172] },
+            { name: "durak20", coords: [43.977858, 15.385076] },
+            { name: "durak21", coords: [41.1032868, 30.6972268] },
+            { name: "durak22", coords: [41.0920375, 30.7255252] },
+          ];
+
+          const map = L.map("map").setView(sanayiStops[0].coords, 14);
+
+          L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution:
+              '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> katkıcıları',
+          }).addTo(map);
+
+          let markers = [];
+
+          function clearMarkers() {
+            markers.forEach((m) => map.removeLayer(m));
+            markers = [];
+          }
+
+          function showStops(stops) {
+            clearMarkers();
+            stops.forEach((stop) => {
+              const marker = L.marker(stop.coords)
+                .addTo(map)
+                .bindPopup(stop.name);
+              markers.push(marker);
+            });
+            if (stops.length > 0) {
+              map.setView(stops[0].coords, 14);
+            }
+          }
+
+          function showSanayi() {
+            showStops(sanayiStops);
+          }
+          function showRota1() {
+            showStops(rota1);
+          }
+          function showRota2() {
+            showStops(rota2);
+          }
+          function showRota3() {
+            showStops(rota3);
+          }
+
+          window.onload = showSanayi;
+        </script>
+      </div>
+    </div>
+    <div id="butonlar">
+      <button onclick="showSanayi()">
+        <p>Dörtyol | Sanayi | Yenimahalle</p>
+      </button>
+      <button onclick="showRota1()">
+        <p>Çarşı | Otogar | Plaj | 32 Evler | Üniversite | Akkum</p>
+      </button>
+      <button onclick="showRota2()"><p>Plaj | Liman | Sanayi</p></button>
+      <button onclick="showRota3()">
+        <p>Hastane | Çağdaş | Toki | Adliye | AVM</p>
+      </button>
+    </div>
+    <div id="baslik">
+      <h3>Duraklar</h3>
+    </div>
+    <div class="section">
+      <div id="duraklar-container">
+        <div>
+          <h3 class="h3baslik">Dörtyol-Yenimahalle</h3>
+          <ul>
+            <a href="#">🚏 Adatepe Sokak Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 İncilli Caddesi Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Kabakoz Sokak Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Yalı Mahallesi Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Şht. İbrahim Aksöz Caddesi Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Plaj Yolu Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Lozan Caddesi Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Şht. Erkan Yılmaz Sokak Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Denizköy Sokak Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Yeni Mahalle Durağı</a>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="h3baslik">Çarşı-Akkum</h3>
+          <ul>
+            <a href="#">🚏 Otogar Caddesi Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Sanayi Girişi Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Rauf Orbay Caddesi Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Manavpınarı Sokak Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Yuvalıdere Köyü Yolu Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Paralı Sokak Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Çamköy Caddesi Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Resuller Mahallesi Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Taşlıgeçit Sokak Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Akkum Sahili Durağı</a>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="h3baslik">Plaj-Sanayi</h3>
+          <ul>
+            <a href="#">🚏 Sahil Yolu Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Villa Caddesi Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Plaj Caddesi Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Karasu Limanı Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Altınkum Sokak Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Kordonboyu Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Kumsal Sokak Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Şehitler Parkı Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Sanayi Caddesi Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Karasu OSB Durağı</a>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="h3baslik">Hastane-AVM</h3>
+          <ul>
+            <a href="#">🚏 Karasu Devlet Hastanesi Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 İncilli Caddesi Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Belediye Önü Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 15 Temmuz Meydanı Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 İmam Hatip Lisesi Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Yeni Mahalle Cami Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Karasu MYO Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Sahil Yolu Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 AVM Girişi Durağı</a>
+          </ul>
+          <ul>
+            <a href="#">🚏 Karasu AVM Durağı</a>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer-kapsayıcı">
+        <div class="footer-nav">
+          <h3>Hizmetlerimiz</h3>
+          <ul>
+            <li><a href="/proje/html/index.html">Anasayfa</a></li>
+            <li>
+              <a href="/proje/html/otobüsümnerede.html">Otobüsüm Nerede ?</a>
+            </li>
+            <li>
+              <a href="/proje/html/nasılgiderim.html"> Nasıl Giderim ?</a>
+            </li>
+            <li><a href="/proje/html/hatlar.html">Hatlar</a></li>
+            <li><a href="/proje/html/duraklar.html">Duraklar</a></li>
+            <li>
+              <a href="/proje/html/otobüs saatelri.html">Otobüs saatleri</a>
+            </li>
+            <li>
+              <a href="/proje/html/ücretlertarifesi.html">Ücret Tarifesi</a>
+            </li>
+            <li><a href="/proje/html/iletişim.html">İletişim</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h3>İletişim</h3>
+          <ul>
+            <li>
+              <a href="https://maps.app.goo.gl/a1A4VUVDkUwa8viy8">
+                <b>Oda No: 403</b> Aziziye, 54500 Karasu/Sakarya</a
+              >
+            </li>
+            <li>
+              <a href="mailto:info@sakaryaulasim.com">info@sakaryaulasim.com</a>
+            </li>
+            <li><a href="tel:+902642345678">0 (264) 234 56 78</a></li>
+          </ul>
+        </div>
+
+        <div class="sosyal-medya">
+          <h3>Sosyal Medya</h3>
+          <ul>
+            <li>
+              <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p>&copy; 2025 Tüm Hakları Saklıdır | OTOBÜS SAATLERİ</p>
+    </footer>
+  </body>
+</html>
